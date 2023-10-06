@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    height: 100vh;
+  }
+  h1 {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.25px;
+    margin-bottom: 24px;
+  }
+}
+
+@layer components {
+  .logo {
+    background: linear-gradient(270deg, #ffd25f 0.13%, #ff5c01 100%);
+    background: -webkit-linear-gradient(270deg, #ffd25f 0.13%, #ff5c01 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 13px;
+    font-weight: 700;
+    padding-top: 36px;
+  }
+  .notification-dot {
+    height: 7px;
+    width: 7px;
+    background-color: #00d1ff;
+    border-radius: 50%;
+    border: 1px solid #000;
+    position: absolute;
+    top: -4px;
+    right: -5px;
+  }
+
+  nav {
+    border-top: 1px solid #000;
+  }
+  @media (min-width: 468px) {
+    nav {
+      border-right: 1px solid #000;
+      border-top: none;
+    }
+  }
+  nav a {
+    color: #6a6a6a;
+  }
+
+  nav a.active {
+    color: #fff;
+  }
+}
