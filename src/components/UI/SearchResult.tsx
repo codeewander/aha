@@ -85,6 +85,9 @@ const SearchResult: FC<SearchResultProps> = ({ setInitial }) => {
           />
           <h1 className="text-white">Results</h1>
           <Grid container spacing={4} sx={{ paddingBottom: '40px' }}>
+            {!searchResults.length && initialApiCallMade.current && !isLoading && (
+              <div className="text-white pt-5">No results found</div>
+            )}
             {searchResults.map((data: UserData) => {
               return (
                 <Grid item key={data.id} xs={12} sm={6} md={4}>
