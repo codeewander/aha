@@ -7,9 +7,4 @@ export default defineConfig({
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
   },
-  build: {
-    rollupOptions: {
-      input: 'src/index.tsx',
-    },
-  },
 });
