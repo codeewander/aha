@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FC } from 'react';
+import { useState, FC } from 'react';
 import Box from '@mui/material/Box';
 import MuiSlider from '@mui/material/Slider';
 
@@ -40,15 +40,17 @@ type SliderProps = {
 };
 
 const Slider: FC<SliderProps> = ({ setScaleValue }) => {
-  const [value, setValue] = useState(15);
+  const [value, setValue] = useState<number>(15);
 
-  const handleChange = (_event: ChangeEvent<HTMLInputElement>, newValue: number) => {
-    setValue(newValue);
-    if (newValue > 12) {
-      const label = (newValue - 12) * 5 + 15;
-      setScaleValue(label);
-    } else {
-      setScaleValue(newValue + 3);
+  const handleChange = (_: Event, newValue: number | number[]) => {
+    if (typeof newValue === 'number') {
+      setValue(newValue);
+      if (newValue > 12) {
+        const label = (newValue - 12) * 5 + 15;
+        setScaleValue(label);
+      } else {
+        setScaleValue(newValue + 3);
+      }
     }
   };
 

@@ -16,7 +16,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ action, isHomePage = false }) => 
         {isHomePage ? (
           <div className="logo xs:hidden xs:inline-block py-7">LOGO</div>
         ) : (
-          <div className="cursor-pointer flex items-center" onClick={action}>
+          <button className="cursor-pointer flex items-center" onClick={action}>
             <ArrowBackIcon
               sx={{
                 color: 'white',
@@ -24,7 +24,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ action, isHomePage = false }) => 
               }}
             />
             <span className="text-white text-2xl">Home Page</span>
-          </div>
+          </button>
         )}
       </nav>
     )
