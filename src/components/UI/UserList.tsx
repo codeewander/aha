@@ -12,15 +12,17 @@ const UserList: FC = () => {
   };
 
   return (
-    <div className="w-96 bg-dark flex-none overflow-auto">
+    <div className="w-[375px] bg-dark flex-none overflow-auto">
       <Tabs
         variant="fullWidth"
         value={value}
         onChange={handleChange}
         centered
         sx={{
+          paddingTop: '17px',
           '& .MuiButtonBase-root.Mui-selected': {
             color: '#FFF',
+            fontSize: 16,
           },
           '& .MuiTabs-indicator': {
             backgroundColor: '#FFF',

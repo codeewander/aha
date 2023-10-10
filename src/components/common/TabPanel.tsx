@@ -21,7 +21,7 @@ const TabPanel: FC<TabPanelProps> = (props) => {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3, height: 'calc(100vh - 48px)', overflow: 'auto' }}>
+        <Box sx={{ padding: '35px 16px', height: 'calc(100vh - 48px)', overflow: 'auto' }}>
           <Typography>{children}</Typography>
         </Box>
       )}

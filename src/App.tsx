@@ -1,4 +1,3 @@
-import Navbar from './components/UI/Navbar';
 import UserList from './components/UI/UserList';
 import { Outlet } from 'react-router-dom';
 import useScreenSize from './hooks/useScreenSize';
@@ -8,7 +7,6 @@ const App = () => {
 
   return (
     <div className="bg-dark h-screen flex flex-col-reverse justify-between xs:flex-row xs:h-screen">
-      <Navbar />
       <Outlet />
       {isWideScreen && <UserList />}
     </div>

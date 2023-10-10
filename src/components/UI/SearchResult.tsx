@@ -7,6 +7,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBackIosNew';
 import MobileNavbar from '@/components/UI/MobileNav';
 import Stack from '@mui/material/Stack';
 import { UserData } from '@/constants/userTypes';
+import { MEDIUM_SCREEN } from '@/constants/mediaQueries';
 
 type SearchResultProps = {
   setInitial: () => void;
@@ -62,32 +63,32 @@ const SearchResult: FC<SearchResultProps> = ({ setInitial }) => {
 
   return (
     <>
-      <MobileNavbar action={backToHomePage} />
-      <div className="px-5 xs:p-0 pt-24 overflow-auto w-full flex justify-center">
-        <div style={{ maxWidth: '725px', width: '80%' }}>
-          <ArrowBackIcon
-            sx={{
-              color: 'white',
-              position: 'relative',
-              top: '35px',
-              right: '35px',
-              cursor: 'pointer',
-              display: 'none',
-              '@media (min-width: 468px)': {
-                display: 'inline-block',
-              },
-            }}
-            onClick={() => {
-              setInitial();
-              setSearchResults([]);
-              navigate('/');
-            }}
-          />
-          <h1 className="text-white">Results</h1>
+      <MobileNavbar action={backToHomePage} page="results" />
+      <ArrowBackIcon
+        sx={{
+          color: 'white',
+          position: 'relative',
+          top: '35px',
+          right: '35px',
+          cursor: 'pointer',
+          display: 'none',
+          [`@media (min-width: ${MEDIUM_SCREEN}px)`]: {
+            display: 'inline-block',
+          },
+        }}
+        onClick={() => {
+          setInitial();
+          setSearchResults([]);
+          navigate('/');
+        }}
+      />
+      <div className="xs:p-0 w-full flex justify-center">
+        <div className="w-full overflow-y-auto py-[20px] xs:py-0" style={{ height: 'calc(100vh - 72px)' }}>
+          <h2 className="text-white pb-[24px]">Results</h2>
+          {!searchResults.length && initialApiCallMade.current && !isLoading && (
+            <div className="text-white pt-5">No results found</div>
+          )}
           <Grid container spacing={4} sx={{ paddingBottom: '40px' }}>
-            {!searchResults.length && initialApiCallMade.current && !isLoading && (
-              <div className="text-white pt-5">No results found</div>
-            )}
             {searchResults.map((data: UserData) => {
               return (
                 <Grid item key={data.id} xs={12} sm={6} md={4}>
@@ -136,9 +137,7 @@ const SearchResult: FC<SearchResultProps> = ({ setInitial }) => {
                         component="div"
                         sx={{
                           color: 'white',
-                          fontFamily: 'ubuntu',
                           fontSize: '14.9px',
-                          lightHeight: '150%',
                           paddingTop: '12px',
                         }}
                       >
@@ -148,9 +147,7 @@ const SearchResult: FC<SearchResultProps> = ({ setInitial }) => {
                         variant="body2"
                         color="#B2B2B2"
                         sx={{
-                          fontFamily: 'ubuntu',
                           fontSize: '11.175px',
-                          lightHeight: '150%',
                         }}
                       >
                         by {data.username}

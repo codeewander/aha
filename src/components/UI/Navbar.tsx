@@ -8,7 +8,7 @@ const Navbar: FC = () => {
   const { isMobileScreen } = useScreenSize();
 
   return (
-    <nav className="w-full flex flex-row gap-x-10 h-16 justify-center items-center xs:gap-y-10 flex-none xs:justify-start xs:h-screen xs:flex-col xs:w-20">
+    <nav className="w-full flex flex-row gap-x-10 h-16 justify-center items-center xs:gap-y-[22px] flex-none xs:justify-start xs:h-screen xs:flex-col xs:w-20 bg-darkGray">
       <div className="logo hidden xs:inline-block	">LOGO</div>
       <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
         {({ isActive }) => (

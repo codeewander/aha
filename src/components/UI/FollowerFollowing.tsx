@@ -42,7 +42,7 @@ const FollowerFollowing: FC<FollowerFollowingProps> = ({ apiUrl }) => {
   }, [apiUrl, hasMore, isLoading, data.length]);
 
   return (
-    <Box className="flex flex-col gap-y-4 overflow-auto">
+    <Box className="flex flex-col gap-y-[16px] overflow-auto">
       {data.map((userInfo: UserData) => {
         return (
           <div key={userInfo.id}>
